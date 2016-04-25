@@ -33,7 +33,6 @@ Flake.prototype.build = function(n)
 	this.html = getAsset("snow");
 	this.instanceName = 'flake_' + n;
 	this.arrayRef = n;
-	this.main = this;
 
 	// BASIC
 	this.dimensions = Math.round(Math.random() * (6 - 1) + 1);

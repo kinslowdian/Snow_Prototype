@@ -45,8 +45,18 @@ html, body
 
 	margin: auto;
 
+	transform-origin: 50% 50%;
+	animation: skyFrames 6s ease-in-out infinite;
+
 /* 	-webkit-filter: blur(2px);
 	filter: blur(2px); */
+}
+
+@keyframes skyFrames
+{
+	0%		{transform: rotate(10deg);}
+	50%		{transform: rotate(-10deg);}
+	100%	{transform: rotate(10deg);}
 }
 
 .lib
