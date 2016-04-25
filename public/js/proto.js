@@ -46,7 +46,7 @@ Flake.prototype.build = function(n)
 	this.positioning.ys = Math.round(Math.random() * (-10 - -(viewer.h * 0.25)) + -(viewer.h * 0.25));
 	this.positioning.ye = Math.round(Math.random() * ((viewer.h + (viewer.h * 0.25)) - viewer.h) + viewer.h);
 
-	this.duration = Math.round(Math.random() * (8000 - 2000) + 2000);
+	this.duration = Math.round(Math.random() * (12000 - 4000) + 4000);
 
 	this.hasListener = false;
 	this.refreshDelay;
@@ -146,17 +146,6 @@ function start_init(event)
 		fx.flakeList[j].reference(_ou, _in);
 		fx.flakeList[j].birth();
 		fx.flakeList[j].place_begin();
-
-		/*
-		fx.flakeList[j].outer.style.width 		= fx.flakeList[j].dimensions + 'px';
-		fx.flakeList[j].outer.style.height 		= fx.flakeList[j].dimensions + 'px';
-		fx.flakeList[j].outer.style.opacity		= fx.flakeList[j].weight;
-		fx.flakeList[j].outer.style.transform	= 'translateX(' + fx.flakeList[j].positioning.x + 'px)';
-
-		fx.flakeList[j].inner.style.transform = 'translateY(' + fx.flakeList[j].positioning.yb + 'px)';
-
-		fx.flakeList[j].inner.style.transitionDuration = fx.flakeList[j].duration + 'ms';
-		*/
 	}
 
 	timer = setTimeout(temp, 1 * 1000);
@@ -183,61 +172,6 @@ function animation_event(event)
 		}
 	}
 }
-
-/*
-function animate_init()
-{
-	eventList = new Array();
-
-	for(var i = 0; i < fx.flakeList.length; i++)
-	{
-		var fl = document.querySelector('.' + fx.flakeList[i].instanceName);
-		var sn = fl.querySelector(".snow");
-
-		sn.style.transform = 'translateY(' + fx.flakeList[i].positioning.ye + 'px)';
-		sn.addEventListener("transitionend", animate_event, false);
-		eventList.push(sn);
-	}
-}
-*/
-
-/*
-function animate_event(event)
-{
-	var eventFlake = event.target.parentElement.classList[1];
-
-	trace(eventFlake);
-
-	for(var i = 0; i < fx.flakeList.length; i++)
-	{
-		var searchFlake;
-
-		if(eventFlake === fx.flakeList[i].instanceName)
-		{
-			searchFlake = document.querySelector('.' + fx.flakeList[i].instanceName);
-			searchFlake.querySelector(".snow").style.transform = 'translateY(' + fx.flakeList[i].positioning.ys + 'px)';
-			searchFlake.querySelector(".snow").style.transitionDuration = "0ms";
-
-			// searchFlake.querySelector(".snow").style.transform = 'translateY(' + fx.flakeList[i].positioning.ye + 'px)';
-			// searchFlake.querySelector(".snow").style.transitionDuration = fx.flakeList[i].duration + 'ms';
-
-			fx.flakeList[i].refreshDelay = setTimeout(animate_recyle, 20, searchFlake, i);
-
-			break;
-		}
-	}
-}
-*/
-
-/*
-function animate_recyle(el, index)
-{
-	trace(el + " " + index);
-
-	el.querySelector(".snow").style.transform = 'translateY(' + fx.flakeList[index].positioning.ye + 'px)';
-	el.querySelector(".snow").style.transitionDuration = fx.flakeList[index].duration + 'ms';
-}
-*/
 
 function getAsset(str)
 {
