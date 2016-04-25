@@ -49,6 +49,12 @@ Flake.prototype.build = function(n)
 	this.refreshDelay;
 }
 
+Flake.prototype.reference = function (o, i)
+{
+	this.outer = o;
+	this.inner = i;
+}
+
 function start_init(event)
 {
 	viewer = {};
@@ -88,14 +94,19 @@ function start_init(event)
 
 		fl.classList.add(fx.flakeList[j].instanceName);
 
-		fl.style.width 			= fx.flakeList[j].dimensions + 'px';
-		fl.style.height 		= fx.flakeList[j].dimensions + 'px';
-		fl.style.opacity		= fx.flakeList[j].weight;
-		fl.style.transform	= 'translateX(' + fx.flakeList[j].positioning.x + 'px)';
+		var _ou = sky.querySelector('.' + fx.flakeList[j].instanceName);
+		var _in = _ou.querySelector(".snow");
 
-		fl.querySelector(".snow").style.transform = 'translateY(' + fx.flakeList[j].positioning.yb + 'px)';
+		fx.flakeList[j].reference(_ou, _in);
 
-		fl.querySelector(".snow").style.transitionDuration = fx.flakeList[j].duration + 'ms';
+		fx.flakeList[j].outer.style.width 			= fx.flakeList[j].dimensions + 'px';
+		fx.flakeList[j].outer.style.height 		= fx.flakeList[j].dimensions + 'px';
+		fx.flakeList[j].outer.style.opacity		= fx.flakeList[j].weight;
+		fx.flakeList[j].outer.style.transform	= 'translateX(' + fx.flakeList[j].positioning.x + 'px)';
+
+		fx.flakeList[j].inner.style.transform = 'translateY(' + fx.flakeList[j].positioning.yb + 'px)';
+
+		fx.flakeList[j].inner.style.transitionDuration = fx.flakeList[j].duration + 'ms';
 	}
 
 	timer = setTimeout(animate_init, 1 * 1000);
