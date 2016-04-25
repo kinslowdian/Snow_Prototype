@@ -147,10 +147,10 @@ function start_init(event)
 		fx.flakeList[j].place_begin();
 	}
 
-	timer = setTimeout(temp, 1 * 1000);
+	timer = setTimeout(animation_start, 250);
 }
 
-function temp()
+function animation_start()
 {
 	for(var i = 0; i < fx.flakeList.length; i++)
 	{
