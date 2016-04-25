@@ -35,7 +35,7 @@ Flake.prototype.build = function(n)
 	this.arrayRef = n;
 
 	// BASIC
-	this.dimensions = Math.round(Math.random() * (6 - 1) + 1);
+	this.dimensions = Math.round(Math.random() * (12 - 1) + 1);
 	this.weight = Math.round(Math.random() * (100 - 4) + 4) / 100;
 
 	// X & Y
